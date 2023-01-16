@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-
+const methodOverride = require('method-override');
 
 const indexRouter = require('./routes/index');
 
@@ -11,6 +11,7 @@ const app = express();
 // view engine setup
 app.set('views', path.resolve(__dirname, './views'));
 app.set('view engine', 'ejs');
+app.use(methodOverride('_method'));
 
 app.use(express.static(path.resolve(__dirname, '../public')));
 
